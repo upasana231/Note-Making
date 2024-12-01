@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Note Taking App</title>
+        <link rel="stylesheet" href="styles.css">
+      </head>
+      
+<body>
+  <header>
+    <h1>My Notes</h1>
+    <img id="header-image" src="images/light.gif" alt="notes" height="100px">
+    <select id="theme-selector">
+        <option value="theme-light">Light Theme</option>
+        <option value="theme-dark">Dark Theme</option>
+        <option value="theme-cute">Cute Theme</option>
+    </select>
+  </header>
+
+  <main>
+    <button id="add-note" class="add-note-btn">Add Note</button>
+    <div class="notes-container"></div>
+  </main>
+
+ 
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <button id="close-popup" class="close-btn">X</button>
+      <h2>Add a New Note</h2>
+      <label for="note-title">Title</label>
+      <input type="text" id="note-title" placeholder="Enter title" />
+      <label for="note-desc">Description</label>
+      <textarea id="note-desc" placeholder="Enter description"></textarea>
+      <div class="color-picker">
+        <label for="color">Select Color:</label>
+        <input type="color" id="color-picker" name="color" value="#ffffff">
+      </div>
+      
+      <button id="create-note" class="create-note-btn">Create Note</button>
+    </div>
+  </div>
+
+
+  <div id="note-view-popup" class="popup hidden">
+    <div id="note-view-content"></div>
+    <button id="close-note-view" class="close-btn">X</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

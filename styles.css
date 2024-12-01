@@ -1,0 +1,317 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-bottom: 4px solid #ff6f61;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    transition: background 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  header h1:hover {
+    transform: scale(1.1); /* Add subtle hover effect */
+  }
+  
+  header img {
+    height: 80px;
+    margin-left: -20px;
+  }
+  
+  select#theme-selector {
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    font-size: 1.1em;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+  
+  select#theme-selector:hover {
+    transform: scale(1.1);
+    background-color: #f1f1f1;
+  }
+  
+  select#theme-selector:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+ 
+  button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: end;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    background-color: #ff6f61;
+    color: white;
+  }
+  
+  .notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+ 
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  
+  .note {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    height: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.8s forwards;
+  }
+  
+  .note:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .note h3 {
+    margin: 0 0 10px;
+  }
+  
+  .note p {
+    flex-grow: 1;
+    margin-bottom: 15px;
+  }
+  
+  .note-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .note-actions button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s ease;
+  }
+  
+  .note-actions button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Popup Styles */
+  .popup-content {
+    background: white;
+    position: absolute;
+    top: 30%;
+    left: 37%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    max-width: 90%;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: popupFadeIn 0.5s forwards;
+  }
+  
+  .popup-content input,
+  .popup-content textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  @keyframes popupFadeIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+
+  .color-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .color-btn {
+    width: 30px;
+    height: 30px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .color-btn.selected {
+    border-color: black;
+  }
+
+  #header-image {
+    border-radius: 20%;
+  }
+  
+ 
+  :root {
+    --header-bg: #fff;
+    --header-text: #000;
+  }
+  
+  .theme-light {
+    --header-bg: #cbdce4;
+    --header-text: #000;
+    background-color: #f9f9f9;
+  }
+  
+  .theme-dark {
+    --header-bg: #333;
+    --header-text: #fff;
+    background-color: #222;
+  }
+  
+  .theme-cute {
+    --header-bg: #ffb6c1;
+    --header-text: #fff;
+    background-color: #ffe4e1;
+  }
+  
+  body.theme-light header {
+    background-color: var(--header-bg);
+  }
+  
+  body.theme-dark header {
+    background-color: var(--header-bg);
+  }
+  
+  body.theme-cute header {
+    background-color: var(--header-bg);
+  }
+  
+ 
+  #note-view-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 300px;
+    word-wrap: break-word;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: popupFadeIn 0.5s forwards;
+  }
+  
+  #note-view-popup.hidden {
+    display: none;
+  }
+  
+  #note-view-content h2 {
+    margin: 0 0 10px;
+  }
+  
+  #close-note-view {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+  @media screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header h1 {
+        margin-bottom: 10px;
+    }
+
+    .notes-container {
+        grid-template-columns: 1fr; /* Stacks notes vertically on small screens */
+        gap: 10px;
+    }
+
+    .popup-content {
+        width: 90%;
+        max-width: 100%;
+        top: 20%;
+    }
+
+    header img {
+        height: 50px; /* Make the header image smaller on small screens */
+    }
+    .popup-content {
+        width: 90%;  /* Popup takes up more space on small screens */
+        max-width: 100%;  /* No fixed max width */
+        padding: 15px;  /* Reduce padding for smaller screens */
+    }
+
+    .popup-content input,
+    .popup-content textarea,
+    .popup-content button {
+        font-size: 14px;  /* Slightly smaller font size on mobile */
+        padding: 8px;  /* Adjust padding for mobile screens */
+    }
+
+    .close-btn {
+        padding: 5px 8px;  /* Smaller close button on mobile */
+    }
+
+}
+  
